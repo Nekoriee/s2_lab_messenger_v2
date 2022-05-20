@@ -27,10 +27,10 @@ $twig = new Twig\Environment($loader);
 
 $controller = new Controller($twig);
 
-//$logger = new Logger('messenger_logger');
-//$logger->pushHandler(new StreamHandler(__DIR__.'/logs/messenger.log', INFO));
+$logger = new Logger('messenger_logger');
+$logger->pushHandler(new StreamHandler(__DIR__.'/logs/messenger.log', INFO));
 
-//$logger->info('hello');
+$logger->info('hello');
 
 $name = $_POST['name'];
 $pass = $_POST['pass'];
@@ -44,9 +44,9 @@ $stmt->execute();
 $user = $stmt->fetchAll();
 
 if (!is_null($user[0]["name"]) && $user[0]["password"] == $pass) {
-    //$logger->info("Пользователь $name вошёл в систему");
+    $logger->info("Пользователь $name вошёл в систему");
     if (!is_null($message) && $message != '') {
-        //$logger->info("Пользователь $name отправил сообщение");
+        $logger->info("Пользователь $name отправил сообщение");
         $datetime = date("Y-m-d H:i:s");
         $sql = 'insert into messages (mes_datetime, mes_user, mes_message) values (:datetime, :user, :message)';
         $stmt = $connection->prepare($sql);
@@ -57,7 +57,7 @@ if (!is_null($user[0]["name"]) && $user[0]["password"] == $pass) {
     }
 }
 elseif (!is_null($user[0]["name"]) && $user[0]["name"] == $name)  {
-    //$logger->info("Введён неверный пароль для пользователя $name");
+    $logger->info("Введён неверный пароль для пользователя $name");
 }
 
 $sql = 'SELECT * from messages';
