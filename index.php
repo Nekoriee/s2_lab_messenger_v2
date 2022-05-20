@@ -28,7 +28,6 @@ $twig = new Twig\Environment($loader);
 
 $controller = new Controller($twig);
 
-// PHP Fatal error: Uncaught Error: Class 'Monolog\Level' not found in /var/www/html/messenger_v2/index.php:32
 //$logger = new Logger('messenger_logger');
 //$logger->pushHandler(new StreamHandler(__DIR__.'logs/messenger.log', Monolog\Level::INFO));
 
