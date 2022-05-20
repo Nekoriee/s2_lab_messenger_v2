@@ -2,7 +2,6 @@
 
 use Pcat\MessengerV2\Controller;
 use Twig\Loader\FilesystemLoader;
-use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -29,7 +28,9 @@ $twig = new Twig\Environment($loader);
 $controller = new Controller($twig);
 
 //$logger = new Logger('messenger_logger');
-//$logger->pushHandler(new StreamHandler(__DIR__.'logs/messenger.log', Monolog\Level::INFO));
+//$logger->pushHandler(new StreamHandler(__DIR__.'/logs/messenger.log', INFO));
+
+//$logger->info('hello');
 
 $name = $_POST['name'];
 $pass = $_POST['pass'];
