@@ -1,0 +1,13 @@
+{
+    "name": "pcat/messenger_v2",
+    "autoload": {
+        "psr-4": {
+            "Pcat\\MessengerV2\\": "src/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.0",
+        "monolog/monolog": "^2.6"
+    },
+    "minimum-stability": "stable"
+}

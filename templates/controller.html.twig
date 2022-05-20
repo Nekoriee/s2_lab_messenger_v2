@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title> Мессенджер </title>
+</head>
+<body>
+
+{% for message in messages %}
+    {% if message is not null %}
+        <b>{{message.mes_user}} {{message.mes_datetime}}</b><br>
+        <b>{{message.mes_message}}</b><br>
+        <br>
+    {% endif %}
+{% endfor %}
+    
+</body>
